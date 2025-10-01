@@ -736,8 +736,14 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
  * @param {string} [config.duration='fast'] jQuery animation duration value
  * @param {string} [config.direction] Scroll in only one direction, e.g. 'x' or 'y', omit
  *  to scroll in both directions
- * @param {Object} [config.alignToTop=false] Aligns the top of the element to the top of the visible
- *  area of the scrollable ancestor.
+ * @param {boolean} [config.alignToTop=false] Deprecated, use `alignTo: 'top'` instead.
+ *  Aligns the top of the element to the top of the visible area of the scrollable ancestor.
+ * @param {string|string[]} [config.alignTo] Aligns the element to an edge of the visible area of
+ *  the scrollable ancestor. Possible values are 'top' or 'bottom' when scrolling vertically, and
+ *  'left' or 'right' when scrolling horizontally. When scrolling in both directions, an array with
+ *  two values can be used, e.g. `['top', 'right']`.
+ *  When omitted, the element will be scrolled the minimum amount necessary to make it fully
+ *  visible.
  * @param {Object} [config.padding] Additional padding on the container to scroll past.
  *  Object containing any of 'top', 'bottom', 'left', or 'right' as numbers.
  * @param {Object} [config.scrollContainer] Scroll container. Defaults to
@@ -801,10 +807,17 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 		};
 	}
 
+	const hasAlignTo = ( align ) => Array.isArray( config.alignTo ) ?
+		config.alignTo.includes( align ) :
+		config.alignTo === align || ( align === 'top' && config.alignToTop );
+
 	if ( !config.direction || config.direction === 'y' ) {
-		if ( position.top < padding.top || config.alignToTop ) {
+		const alignToTop = hasAlignTo( 'top' );
+		const alignToBottom = hasAlignTo( 'bottom' );
+
+		if ( alignToTop || ( !alignToBottom && position.top < padding.top ) ) {
 			animations.scrollTop = containerDimensions.scroll.top + position.top - padding.top;
-		} else if ( position.bottom < padding.bottom ) {
+		} else if ( alignToBottom || position.bottom < padding.bottom ) {
 			animations.scrollTop = containerDimensions.scroll.top +
 				// Scroll the bottom into view, but not at the expense
 				// of scrolling the top out of view
@@ -812,9 +825,12 @@ OO.ui.Element.static.scrollIntoView = function ( elOrPosition, config ) {
 		}
 	}
 	if ( !config.direction || config.direction === 'x' ) {
-		if ( position.left < padding.left ) {
+		const alignToLeft = hasAlignTo( 'left' );
+		const alignToRight = hasAlignTo( 'right' );
+
+		if ( alignToLeft || ( !alignToRight && position.left < padding.left ) ) {
 			animations.scrollLeft = containerDimensions.scroll.left + position.left - padding.left;
-		} else if ( position.right < padding.right ) {
+		} else if ( alignToRight || position.right < padding.right ) {
 			animations.scrollLeft = containerDimensions.scroll.left +
 				// Scroll the right into view, but not at the expense
 				// of scrolling the left out of view
