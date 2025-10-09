@@ -35,7 +35,6 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testContent() {
 		$content = new \ReflectionProperty( 'OOUI\Tag', 'content' );
-		$content->setAccessible( true );
 		$tag = new Tag( 'div' );
 		$aTag = new Tag( 'a' );
 		$bTag = new Tag( 'b' );
