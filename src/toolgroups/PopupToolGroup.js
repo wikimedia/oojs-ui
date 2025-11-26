@@ -357,7 +357,7 @@ OO.ui.PopupToolGroup.prototype.setActive = function ( value ) {
 					this.$clippableScrollableContainer.offset().left;
 
 				this.toggleClipping( false );
-				this.setHorizontalPosition( preferredSide );
+				this.setHorizontalPosition( 'start' );
 
 				this.$clippable.css( {
 					'margin-left': -( this.$element.offset().left - containerLeft ),
