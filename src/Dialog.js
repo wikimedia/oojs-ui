@@ -343,7 +343,9 @@ OO.ui.Dialog.prototype.executeAction = function ( action ) {
 	const actionWidgets = this.actions.get( { actions: [ action ], visible: true } );
 	// If the action is shown as an ActionWidget, but is disabled, then do nothing.
 	if ( actionWidgets.length && actionWidgets.every( ( widget ) => widget.isDisabled() ) ) {
-		return $.Deferred().reject().promise();
+		// Return a resolved promise to do nothing. A rejected promise would
+		// trigger an error message (T411186).
+		return $.Deferred().resolve().promise();
 	}
 	this.pushPending();
 	this.currentAction = action;
