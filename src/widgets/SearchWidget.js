@@ -81,6 +81,7 @@ OO.ui.SearchWidget.prototype.onQueryKeydown = function ( e ) {
 		if ( nextItem ) {
 			nextItem.scrollElementIntoView();
 		}
+		e.preventDefault();
 	}
 };
 
