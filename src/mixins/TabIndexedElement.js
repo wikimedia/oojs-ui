@@ -174,6 +174,22 @@ OO.ui.mixin.TabIndexedElement.prototype.getInputId = function () {
 };
 
 /**
+ * Set the element with the given ID as a label for this widget.
+ *
+ * @param {string|null} id
+ */
+OO.ui.mixin.TabIndexedElement.prototype.setLabelledBy = function ( id ) {
+	if ( !this.$tabIndexed ) {
+		return;
+	}
+	if ( id ) {
+		this.$tabIndexed.attr( 'aria-labelledby', id );
+	} else {
+		this.$tabIndexed.removeAttr( 'aria-labelledby' );
+	}
+};
+
+/**
  * Whether the node is 'labelable' according to the HTML spec
  * (i.e., whether it can be interacted with through a `<label for="…">`).
  * See: <https://html.spec.whatwg.org/multipage/forms.html#category-label>.
