@@ -1,6 +1,6 @@
 # OOUI Release History
 
-## v0.53.1 / 2025-10-15
+## v0.53.1 / 2025-12-17
 
 ### Styles
 * Fix text ellipsis in DropdownWidget (Ed Sanders)
