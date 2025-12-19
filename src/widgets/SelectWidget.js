@@ -445,13 +445,14 @@ OO.ui.SelectWidget.prototype.unbindDocumentKeyDownListener = function () {
  */
 OO.ui.SelectWidget.prototype.attachDocumentKeyDownListenerOnFocus = function ( $element ) {
 	$element = $element || this.$element;
-	$element.on( {
-		// focusin/out are bubbling and so fire before DOM changes, this
-		// means focusout fires when this.$element is detached while focused,
-		// unlike blur.
-		focusin: this.bindDocumentKeyDownListener.bind( this ),
-		focusout: this.unbindDocumentKeyDownListener.bind( this )
-	} );
+	// focusin/out are bubbling and so fire before DOM changes, this
+	// means focusout fires when this.$element is detached while focused,
+	// unlike blur.
+	// As the widget could be removed by using widget.$element.remove(),
+	// we use native events as jQuery.remove will unbind jQuery events
+	// before element removal, preventing us from listening to focusout.
+	$element[ 0 ].addEventListener( 'focusin', this.bindDocumentKeyDownListener.bind( this ) );
+	$element[ 0 ].addEventListener( 'focusout', this.unbindDocumentKeyDownListener.bind( this ) );
 };
 
 /**
