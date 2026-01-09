@@ -59,7 +59,7 @@
 		"grunt-stylelint": "0.20.1",
 		"grunt-tyops": "0.1.1",
 		"javascript-stringify": "1.6.0",
-		"jsdoc": "4.0.4",
+		"jsdoc": "4.0.5",
 		"jsdoc-class-hierarchy": "^1.1.2",
 		"jsdoc-wmf-theme": "1.1.0",
 		"karma": "6.3.20",
