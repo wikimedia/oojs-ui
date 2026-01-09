@@ -77,6 +77,7 @@ OO.ui.Theme.prototype.updateQueuedElementClasses = function () {
 OO.ui.Theme.prototype.queueUpdateElementClasses = function ( element ) {
 	// Keep items in the queue unique. Use lastIndexOf to start checking from the end because that's
 	// the most common case (this method is often called repeatedly for the same element).
+	// eslint-disable-next-line unicorn/prefer-includes
 	if ( this.elementClassesQueue.lastIndexOf( element ) !== -1 ) {
 		return;
 	}
