@@ -315,6 +315,7 @@ OO.ui.mixin.FloatableElement.prototype.position = function () {
 OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 	const newPos = { top: '', left: '', bottom: '', right: '' };
 	const direction = this.$floatableContainer.css( 'direction' );
+	const viewportSpacing = OO.ui.getViewportSpacing();
 
 	let $offsetParent = this.$floatable.offsetParent();
 
@@ -350,15 +351,35 @@ OO.ui.mixin.FloatableElement.prototype.computePosition = function () {
 
 	if ( this.verticalPosition === 'below' ) {
 		newPos.top = containerPos.bottom + this.spacing;
+		// Adjust for viewport spacing (e.g. sticky headers) when attached to body
+		if ( isBody ) {
+			newPos.top += viewportSpacing.top;
+		}
 	} else if ( this.verticalPosition === 'above' ) {
 		newPos.bottom = $offsetParent.outerHeight() - containerPos.top + this.spacing;
+		// Adjust for viewport spacing (e.g. sticky footers) when attached to body
+		if ( isBody ) {
+			newPos.bottom += viewportSpacing.bottom;
+		}
 	} else if ( this.verticalPosition === 'top' ) {
 		newPos.top = containerPos.top;
+		// Adjust for viewport spacing when attached to body
+		if ( isBody ) {
+			newPos.top += viewportSpacing.top;
+		}
 	} else if ( this.verticalPosition === 'bottom' ) {
 		newPos.bottom = $offsetParent.outerHeight() - containerPos.bottom;
+		// Adjust for viewport spacing when attached to body
+		if ( isBody ) {
+			newPos.bottom += viewportSpacing.bottom;
+		}
 	} else if ( this.verticalPosition === 'center' ) {
 		newPos.top = containerPos.top +
 			( this.$floatableContainer.height() - this.$floatable.height() ) / 2;
+		// Adjust for viewport spacing when attached to body
+		if ( isBody ) {
+			newPos.top += viewportSpacing.top;
+		}
 	}
 
 	if ( this.horizontalPosition === 'before' ) {
