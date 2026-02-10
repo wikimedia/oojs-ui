@@ -325,4 +325,13 @@
 			'Retrieving last introduced item label from input'
 		);
 	} );
+
+	QUnit.test( 'setDisabled', ( assert ) => {
+		const widget = new OO.ui.TagMultiselectWidget( { allowArbitrary: true, disabled: true, select: [ 'foo', 'bar', 'baz' ] } );
+		assert.strictEqual(
+			widget.input.isDisabled(),
+			true,
+			'setValue does not enable input (T230066)'
+		);
+	} );
 }() );

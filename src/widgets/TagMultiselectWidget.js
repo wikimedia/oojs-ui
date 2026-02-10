@@ -484,7 +484,7 @@ OO.ui.TagMultiselectWidget.prototype.onChangeTags = function () {
 			// Show/clear the placeholder and enable/disable the input
 			// based on whether we are/aren't under the specified limit
 			this.input.$input.attr( 'placeholder', isUnderLimit ? this.inputPlaceholder : '' );
-			this.input.setDisabled( !isUnderLimit );
+			this.input.setDisabled( this.isDisabled() || !isUnderLimit );
 		} else {
 			const hadFocus = document.activeElement === this.input.$input[ 0 ];
 			// Move input to the end of the group
