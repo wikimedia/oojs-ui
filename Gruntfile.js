@@ -680,7 +680,7 @@ module.exports = function ( grunt ) {
 	// Note that this skips "git-build", so version numbers are final and don't have a git hash.
 	grunt.registerTask( 'publish-build', [ 'build', 'minify' ] );
 
-	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'banana', 'check-theme-manifests' ] );
 
 	// Run this before opening "tests/index.php"
 	grunt.registerTask( 'prep-test', [ 'lint', 'git-build', 'build-tests' ] );
