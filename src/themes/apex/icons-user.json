@@ -26,6 +26,12 @@
 		"userBlocked": {
 			"file": "../wikimediaui/images/icons/userBlocked.svg"
 		},
+		"userContributions": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/userContributions-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/userContributions-rtl.svg"
+			}
+		},
 		"userGroup": {
 			"file": {
 				"ltr": "../wikimediaui/images/icons/userGroup-ltr.svg",
