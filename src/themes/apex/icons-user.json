@@ -23,6 +23,9 @@
 		"userAvatarOutline": {
 			"file": "../wikimediaui/images/icons/userAvatarOutline.svg"
 		},
+		"userBlocked": {
+			"file": "../wikimediaui/images/icons/userBlocked.svg"
+		},
 		"userGroup": {
 			"file": {
 				"ltr": "../wikimediaui/images/icons/userGroup-ltr.svg",
