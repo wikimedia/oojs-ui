@@ -118,7 +118,7 @@ OO.ui.ProcessDialog.prototype.initialize = function () {
 	this.$primaryActions = $( '<div>' );
 	this.$otherActions = $( '<div>' );
 	this.dismissButton = new OO.ui.ButtonWidget( {
-		label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
+		label: OO.ui.msg( 'ooui-dialog-process-back' )
 	} );
 	this.retryButton = new OO.ui.ButtonWidget();
 	this.$errors = $( '<div>' );

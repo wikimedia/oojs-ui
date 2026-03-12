@@ -10,7 +10,7 @@ Demo.SimpleDialog.prototype.initialize = function () {
 	this.content.$element.append( '<p>Dialog content</p>' );
 
 	const closeButton = new OO.ui.ButtonWidget( {
-		label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
+		label: 'Done'
 	} );
 	closeButton.on( 'click', () => {
 		this.close();
