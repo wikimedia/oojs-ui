@@ -331,24 +331,40 @@
 				&-progressive {
 					.mw-framed-button-colored(
 						~'.oo-ui-buttonElement-button',
+						// Normal
+						@background-color-progressive-subtle,
+						@border-color-progressive,
 						@color-progressive,
-						@background-color-base,
+						// Hover
+						@background-color-progressive-subtle--hover,
 						@border-color-progressive--hover,
+						@color-progressive--hover,
+						// Active
+						@background-color-progressive-subtle--active,
+						@border-color-progressive--active,
 						@color-progressive--active,
+						// Focus
 						@color-progressive--focus,
-						@background-color-progressive-subtle
 					);
 				}
 
 				&-destructive {
 					.mw-framed-button-colored(
 						~'.oo-ui-buttonElement-button',
+						// Normal
+						@background-color-destructive-subtle,
+						@border-color-destructive,
 						@color-destructive,
-						@background-color-base,
+						// Hover
+						@background-color-destructive-subtle--hover,
 						@border-color-destructive--hover,
+						@color-destructive--hover,
+						// Active
+						@background-color-destructive-subtle--active,
+						@border-color-destructive--active,
 						@color-destructive--active,
-						@color-destructive--focus,
-						@background-color-destructive-subtle
+						// Focus
+						@color-progressive--focus,
 					);
 				}
 			}

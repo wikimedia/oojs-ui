@@ -197,14 +197,24 @@
 	}
 }
 
-.mw-framed-button-colored( @child, @color-text, @hover, @border-color--hover, @active, @focus, @active-background ) {
+/* stylelint-disable-next-line @stylistic/indentation */
+.mw-framed-button-colored(
+	@child,
+	@background-color, @border-color, @color-text,
+	@background-color-hover, @border-color-hover, @color-text-hover,
+	@background-color-active, @border-color-active, @color-text-active,
+	@focus
+) {
 	> @{child} {
 		color: @color-text;
+		background-color: @background-color;
+		border-color: @border-color;
 	}
 
 	> @{child}:hover {
-		background-color: @hover;
-		border-color: @border-color--hover;
+		color: @color-text-hover;
+		background-color: @background-color-hover;
+		border-color: @border-color-hover;
 	}
 
 	> @{child}:focus {
@@ -218,9 +228,9 @@
 	&.oo-ui-buttonElement-pressed > @{child},
 	&.oo-ui-buttonElement-active > @{child},
 	&.oo-ui-popupToolGroup-active > @{child} {
-		background-color: @active-background;
-		color: @active;
-		border-color: @active;
+		color: @color-text-active;
+		background-color: @background-color-active;
+		border-color: @border-color-active;
 		box-shadow: none;
 	}
 }

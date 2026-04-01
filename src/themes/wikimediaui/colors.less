@@ -2,6 +2,12 @@
 // These tokens have been manually vendored so that OOUI doesn't have to migrate
 // to rem units
 
+// Additional tokens have been added since 1.13.0 for updating button styles (T422032):
+// - background-color-progressve-subtle--hover
+// - background-color-progressve-subtle--active
+// - background-color-destructive-subtle--hover
+// - background-color-destructive-subtle--active
+
 // These tokens correspond to CSS custom properties which should be set in the skin (with a fallback value for use outside of MW)
 @color-base: var( --color-base, #202122 );
 @color-base--hover: var( --color-base--hover, #404244 ); // Aimed to be replaced by `color.gray600` in future.
@@ -55,11 +61,15 @@
 @background-color-progressive--active: var( --background-color-progressive--active, #233566 );
 @background-color-progressive--focus: var( --background-color-progressive--focus, #36c );
 @background-color-progressive-subtle: var( --background-color-progressive-subtle, #eaf3ff );
+@background-color-progressive-subtle--hover: var( --background-color-progressive-subtle--hover, #d9e2ff );
+@background-color-progressive-subtle--active: var( --background-color-progressive-subtle--active, #c8d9f1 );
 @background-color-destructive: var( --background-color-destructive, #d73333 );
 @background-color-destructive--hover: var( --background-color-destructive--hover, #fc493b );
 @background-color-destructive--active: var( --background-color-destructive--active, #9f3526 );
 @background-color-destructive--focus: var( --background-color-destructive--focus, #36c );
 @background-color-destructive-subtle: var( --background-color-destructive-subtle, #ffe9e5 );
+@background-color-destructive-subtle--hover: var( --background-color-destructive-subtle--hover, #ffdad3 );
+@background-color-destructive-subtle--active: var( --background-color-destructive-subtle--active, #ffc8bd );
 @background-color-error: var( --background-color-error, #d73333 );
 @background-color-error--hover: var( --background-color-error--hover, #fc493b );
 @background-color-error--active: var( --background-color-error--active, #9f3526 );
