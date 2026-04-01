@@ -362,7 +362,7 @@ function main() {
 		process.stderr.write( `* ${ className }: ${ classTests.tests.length }\n` );
 	}
 
-	const json = JSON.stringify( tests, null, 2 ) + '\n';
+	const json = JSON.stringify( tests, null, '\t' ) + '\n';
 	if ( outFile ) {
 		fs.writeFileSync( outFile, json, { encoding: 'utf-8' } );
 	} else {
