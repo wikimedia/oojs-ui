@@ -11,6 +11,16 @@
 		padding-top: @padding-top-icon-indicator;
 		font-weight: @font-weight-bold;
 		text-decoration: none;
+
+		.oo-ui-buttonElement-size-small& {
+			min-height: @min-size-interactive-pointer + ( @padding-small-vertical-adjustment * 2 );
+			padding-top: @padding-top-icon-indicator + ( @padding-small-vertical-adjustment-em * 2 );
+		}
+
+		.oo-ui-buttonElement-size-large& {
+			min-height: @min-size-interactive-pointer + ( @padding-large-vertical-adjustment * 2 );
+			padding-top: @padding-top-icon-indicator + ( @padding-large-vertical-adjustment-em * 2 );
+		}
 	}
 
 	// ButtonInputWidget's `<input>`
@@ -31,6 +41,14 @@
 		&.oo-ui-indicatorElement {
 			> .oo-ui-buttonElement-button {
 				padding-right: @padding-start-indicator-plus;
+
+				.oo-ui-buttonElement-size-small& {
+					padding-right: ( @padding-start-indicator-plus + @padding-small-horizontal-adjustment-em );
+				}
+
+				.oo-ui-buttonElement-size-large& {
+					padding-right: ( @padding-start-indicator-plus + @padding-large-horizontal-adjustment-em );
+				}
 			}
 		}
 	}
@@ -47,6 +65,14 @@
 		&.oo-ui-iconElement {
 			> .oo-ui-buttonElement-button > .oo-ui-indicatorElement-indicator {
 				right: @padding-start-indicator;
+
+				.oo-ui-buttonElement-size-small& {
+					right: ( @padding-start-indicator + ( @padding-small-horizontal-adjustment-em / 2 ) );
+				}
+
+				.oo-ui-buttonElement-size-large& {
+					right: ( @padding-start-indicator + ( @padding-large-horizontal-adjustment-em / 2 ) );
+				}
 			}
 		}
 	}
@@ -223,6 +249,16 @@
 			border-radius: @border-radius-base;
 			padding-left: @padding-horizontal-base;
 			padding-right: @padding-horizontal-base;
+
+			.oo-ui-buttonElement-size-small& {
+				padding-left: @padding-horizontal-base + @padding-small-horizontal-adjustment;
+				padding-right: @padding-horizontal-base + @padding-small-horizontal-adjustment;
+			}
+
+			.oo-ui-buttonElement-size-large& {
+				padding-left: @padding-horizontal-base + @padding-large-horizontal-adjustment;
+				padding-right: @padding-horizontal-base + @padding-large-horizontal-adjustment;
+			}
 		}
 
 		&.oo-ui-iconElement {
@@ -237,6 +273,16 @@
 					left: 50%;
 					margin-left: -( @size-icon-medium / 2 );
 				}
+
+				.oo-ui-buttonElement-size-small& {
+					padding-top: @padding-top-icon-indicator + ( @padding-small-vertical-adjustment-em * 2 );
+					padding-left: ( @padding-start-icon-only + @padding-small-horizontal-adjustment-em );
+				}
+
+				.oo-ui-buttonElement-size-large& {
+					padding-top: @padding-top-icon-indicator + ( @padding-large-vertical-adjustment-em * 2 );
+					padding-left: ( @padding-start-icon-only + @padding-large-horizontal-adjustment-em );
+				}
 			}
 
 			// Icon and label/indicator framed
@@ -245,9 +291,25 @@
 				> .oo-ui-buttonElement-button {
 					padding-left: @padding-start-button-framed-icon-label;
 
+					.oo-ui-buttonElement-size-small& {
+						padding-left: ( @padding-start-button-framed-icon-label + @padding-small-horizontal-adjustment-em );
+					}
+
+					.oo-ui-buttonElement-size-large& {
+						padding-left: ( @padding-start-button-framed-icon-label + @padding-large-horizontal-adjustment-em );
+					}
+
 					> .oo-ui-iconElement-icon {
 						left: @start-framed-icon-only;
 						margin-left: 0;
+
+						.oo-ui-buttonElement-size-small& {
+							left: ( @start-framed-icon-only + ( @padding-small-horizontal-adjustment-em / 2 ) );
+						}
+
+						.oo-ui-buttonElement-size-large& {
+							left: ( @start-framed-icon-only + ( @padding-large-horizontal-adjustment-em / 2 ) );
+						}
 					}
 				}
 			}
@@ -259,6 +321,16 @@
 				padding-top: @padding-top-icon-indicator;
 				padding-right: @padding-start-indicator-only;
 				padding-bottom: 0;
+
+				.oo-ui-buttonElement-size-small& {
+					padding-top: @padding-top-icon-indicator + ( @padding-small-vertical-adjustment-em * 2 );
+					padding-right: ( @padding-start-indicator-only + @padding-small-horizontal-adjustment-em );
+				}
+
+				.oo-ui-buttonElement-size-large& {
+					padding-top: @padding-top-icon-indicator + ( @padding-large-vertical-adjustment-em * 2 );
+					padding-right: ( @padding-start-indicator-only + @padding-large-horizontal-adjustment-em );
+				}
 			}
 		}
 
@@ -266,6 +338,16 @@
 			> .oo-ui-buttonElement-button {
 				padding-top: @padding-vertical-base;
 				padding-bottom: @padding-vertical-base;
+
+				.oo-ui-buttonElement-size-small& {
+					padding-top: @padding-vertical-base + @padding-small-vertical-adjustment;
+					padding-bottom: @padding-vertical-base + @padding-small-vertical-adjustment;
+				}
+
+				.oo-ui-buttonElement-size-large& {
+					padding-top: @padding-vertical-base + @padding-large-vertical-adjustment;
+					padding-bottom: @padding-vertical-base + @padding-large-vertical-adjustment;
+				}
 			}
 		}
 

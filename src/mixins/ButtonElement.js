@@ -13,6 +13,8 @@
  * @param {jQuery} [config.$button] The button element created by the class.
  *  If this configuration is omitted, the button element will use a generated `<a>`.
  * @param {boolean} [config.framed=true] Render the button with a frame
+ * @param {string} [config.size='medium'] The size of the button,
+ *  either 'small', 'medium' or 'large'
  */
 OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Configuration initialization
@@ -21,6 +23,7 @@ OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Properties
 	this.$button = null;
 	this.framed = null;
+	this.size = null;
 	this.active = config.active !== undefined && config.active;
 	this.onDocumentMouseUpHandler = this.onDocumentMouseUp.bind( this );
 	this.onMouseDownHandler = this.onMouseDown.bind( this );
@@ -32,6 +35,7 @@ OO.ui.mixin.ButtonElement = function OoUiMixinButtonElement( config ) {
 	// Initialization
 	this.$element.addClass( 'oo-ui-buttonElement' );
 	this.toggleFramed( config.framed === undefined || config.framed );
+	this.setSize( config.size || 'medium' );
 	this.setButtonElement( config.$button || $( '<a>' ) );
 };
 
@@ -230,6 +234,41 @@ OO.ui.mixin.ButtonElement.prototype.toggleFramed = function ( framed ) {
 		this.$element
 			.toggleClass( 'oo-ui-buttonElement-frameless', !framed )
 			.toggleClass( 'oo-ui-buttonElement-framed', framed );
+		this.updateThemeClasses();
+		// Changing framed changes the available sizes
+		this.setSize( this.size || 'medium' );
+	}
+
+	return this;
+};
+
+/**
+ * Get the button's size.
+ *
+ * @return {string} The button's size, either 'small', 'medium' or 'large'
+ */
+OO.ui.mixin.ButtonElement.prototype.getSize = function () {
+	return this.size;
+};
+
+/**
+ * Set the button's size
+ *
+ * @param {string} size The size of the button, either 'small', 'medium' or 'large'
+ * @chainable
+ * @return {OO.ui.Element} The element, for chaining
+ */
+OO.ui.mixin.ButtonElement.prototype.setSize = function ( size ) {
+	if ( !this.framed ) {
+		// Frameless buttons only support medium size
+		size = 'medium';
+	}
+	if ( size !== this.size ) {
+		this.size = size;
+		this.$element
+			.toggleClass( 'oo-ui-buttonElement-size-small', size === 'small' )
+			.toggleClass( 'oo-ui-buttonElement-size-medium', size === 'medium' )
+			.toggleClass( 'oo-ui-buttonElement-size-large', size === 'large' );
 		this.updateThemeClasses();
 	}
 

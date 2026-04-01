@@ -20,18 +20,24 @@ class ButtonStyleShowcaseWidget extends OOUI\Widget {
 		[
 			'flags' => [ 'primary', 'destructive' ],
 		],
+		[
+			'size' => 'small',
+		],
+		[
+			'size' => 'large',
+		],
 	];
 	protected static $states = [
 		[
-			'label' => 'Button',
+			'label' => 'Text',
 		],
 		[
-			'label' => 'Button',
 			'icon' => 'tag',
+			'label' => 'Text',
 		],
 		[
-			'label' => 'Button',
 			'icon' => 'tag',
+			'label' => 'Text',
 			'indicator' => 'down',
 		],
 		[
@@ -45,21 +51,10 @@ class ButtonStyleShowcaseWidget extends OOUI\Widget {
 			'indicator' => 'down',
 		],
 		[
-			'label' => 'Button',
-			'disabled' => true,
-		],
-		[
-			'icon' => 'tag',
-			'title' => 'Title text',
-			'disabled' => true,
-		],
-		[
-			'icon' => 'tag',
-			'label' => 'Tag',
+			'label' => 'Dropdown',
 			'invisibleLabel' => true,
 			'indicator' => 'down',
-			'disabled' => true,
-		],
+		]
 	];
 
 	public function __construct( array $config = [] ) {
@@ -69,12 +64,28 @@ class ButtonStyleShowcaseWidget extends OOUI\Widget {
 
 		foreach ( self::$styles as $style ) {
 			$buttonRow = new OOUI\Tag( 'div' );
-			foreach ( self::$states as $state ) {
-				$buttonRow->appendContent(
-					new OOUI\ButtonWidget( array_merge( $style, $state ) )
-				);
+			$buttonRowFrameless = new OOUI\Tag( 'div' );
+			foreach ( [ false, true ] as $disabled ) {
+				foreach ( self::$states as $state ) {
+					$buttonRow->appendContent(
+						new OOUI\ButtonWidget(
+							array_merge(
+								$style, $state,
+								[ 'disabled' => $disabled ]
+							)
+						)
+					);
+					$buttonRowFrameless->appendContent(
+						new OOUI\ButtonWidget(
+							array_merge(
+								$style, $state,
+								[ 'framed' => false, 'disabled' => $disabled ]
+							)
+						)
+					);
+				}
 			}
-			$this->appendContent( $buttonRow );
+			$this->appendContent( $buttonRow, $buttonRowFrameless );
 		}
 	}
 

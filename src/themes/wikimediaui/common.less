@@ -110,6 +110,17 @@
 @padding-horizontal-taboption-label: 5px;
 @padding-horizontal-tagitem: @spacing-50;
 @padding-horizontal-toolbar-action-buttons: @spacing-100; // Aligned relatively to `@padding-horizontal-base` but for toolbar button height.
+
+@padding-small-horizontal-adjustment: -6px;
+@padding-small-vertical-adjustment: -4px;
+@padding-large-horizontal-adjustment: 4px;
+@padding-large-vertical-adjustment: 6px;
+
+@padding-small-horizontal-adjustment-em: unit( @padding-small-horizontal-adjustment ) / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-small-vertical-adjustment-em: unit( @padding-small-vertical-adjustment ) / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-large-horizontal-adjustment-em: unit( @padding-large-horizontal-adjustment ) / @ooui-font-size-browser / @ooui-font-size-base;
+@padding-large-vertical-adjustment-em: unit( @padding-large-vertical-adjustment ) / @ooui-font-size-browser / @ooui-font-size-base;
+
 // All paddings holding icons need `em`s due to font-size derived icon scaling.
 @padding-horizontal-base-iconized: ( unit( @spacing-75 ) / @ooui-font-size-browser / @ooui-font-size-base );
 // Must be < `8` as it cuts off scripts like Burmese. Directly connected to `line-height` further down.

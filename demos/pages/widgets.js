@@ -486,25 +486,30 @@ Demo.static.pages.widgets = function ( demo ) {
 			id: 'demo-section-button-sets',
 			label: 'Button sets',
 			items: [
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonGroupWidget( {
-						items: [
-							new OO.ui.ButtonWidget( {
-								icon: 'tag',
-								label: 'One'
-							} ),
-							new OO.ui.ButtonWidget( {
-								label: 'Two'
-							} ),
-							new OO.ui.ButtonWidget( {
-								label: 'Three'
-							} )
-						]
-					} ),
-					{
-						label: 'ButtonGroupWidget',
-						align: 'top'
-					}
+				...[ 'medium', 'small', 'large' ].map(
+					( size ) => new OO.ui.FieldLayout(
+						new OO.ui.ButtonGroupWidget( {
+							items: [
+								new OO.ui.ButtonWidget( {
+									icon: 'tag',
+									label: 'One',
+									size
+								} ),
+								new OO.ui.ButtonWidget( {
+									label: 'Two',
+									size
+								} ),
+								new OO.ui.ButtonWidget( {
+									label: 'Three',
+									size
+								} )
+							]
+						} ),
+						{
+							label: 'ButtonGroupWidget (' + size + ')',
+							align: 'top'
+						}
+					)
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonGroupWidget( {
@@ -565,28 +570,33 @@ Demo.static.pages.widgets = function ( demo ) {
 						align: 'top'
 					}
 				),
-				new OO.ui.FieldLayout(
-					new OO.ui.ButtonSelectWidget( {
-						items: [
-							new OO.ui.ButtonOptionWidget( {
-								data: 'b',
-								icon: 'tag',
-								label: 'One'
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 'c',
-								label: 'Two'
-							} ),
-							new OO.ui.ButtonOptionWidget( {
-								data: 'd',
-								label: 'Three'
-							} )
-						]
-					} ),
-					{
-						label: 'ButtonSelectWidget',
-						align: 'top'
-					}
+				...[ 'medium', 'small', 'large' ].map(
+					( size ) => new OO.ui.FieldLayout(
+						new OO.ui.ButtonSelectWidget( {
+							items: [
+								new OO.ui.ButtonOptionWidget( {
+									data: 'b',
+									icon: 'tag',
+									label: 'One',
+									size
+								} ),
+								new OO.ui.ButtonOptionWidget( {
+									data: 'c',
+									label: 'Two',
+									size
+								} ),
+								new OO.ui.ButtonOptionWidget( {
+									data: 'd',
+									label: 'Three',
+									size
+								} )
+							]
+						} ),
+						{
+							label: 'ButtonSelectWidget (' + size + ')',
+							align: 'top'
+						}
+					)
 				),
 				new OO.ui.FieldLayout(
 					new OO.ui.ButtonSelectWidget( {

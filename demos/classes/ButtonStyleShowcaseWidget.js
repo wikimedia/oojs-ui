@@ -5,12 +5,24 @@ Demo.ButtonStyleShowcaseWidget = function DemoButtonStyleShowcaseWidget( config 
 
 	this.constructor.static.styles.forEach( ( style ) => {
 		const $buttonRow = $( '<div>' );
-		this.constructor.static.states.forEach( ( state ) => {
-			$buttonRow.append(
-				new OO.ui.ButtonWidget( Object.assign( {}, style, state ) ).$element
-			);
+		const $buttonRowFrameless = $( '<div>' );
+		[ false, true ].forEach( ( disabled ) => {
+			this.constructor.static.states.forEach( ( state ) => {
+				$buttonRow.append(
+					new OO.ui.ButtonWidget(
+						Object.assign( {}, style, state, { disabled: disabled } )
+					).$element
+				);
+				if ( !style.size || style.size === 'medium' ) {
+					$buttonRowFrameless.append(
+						new OO.ui.ButtonWidget(
+							Object.assign( {}, style, state, { framed: false, disabled: disabled } )
+						).$element
+					);
+				}
+			} );
 		} );
-		this.$element.append( $buttonRow );
+		this.$element.append( $buttonRow, $buttonRowFrameless );
 	} );
 };
 
@@ -29,20 +41,26 @@ Demo.ButtonStyleShowcaseWidget.static.styles = [
 	},
 	{
 		flags: [ 'primary', 'destructive' ]
+	},
+	{
+		size: 'small'
+	},
+	{
+		size: 'large'
 	}
 ];
 
 Demo.ButtonStyleShowcaseWidget.static.states = [
 	{
-		label: 'Button'
+		label: 'Text'
 	},
 	{
 		icon: 'tag',
-		label: 'Button'
+		label: 'Text'
 	},
 	{
 		icon: 'tag',
-		label: 'Button',
+		label: 'Text',
 		indicator: 'down'
 	},
 	{
@@ -56,19 +74,8 @@ Demo.ButtonStyleShowcaseWidget.static.states = [
 		indicator: 'down'
 	},
 	{
-		label: 'Button',
-		disabled: true
-	},
-	{
-		icon: 'tag',
-		title: 'Title text',
-		disabled: true
-	},
-	{
-		icon: 'tag',
 		label: 'Dropdown',
 		invisibleLabel: true,
-		indicator: 'down',
-		disabled: true
+		indicator: 'down'
 	}
 ];

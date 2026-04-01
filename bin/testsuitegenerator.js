@@ -223,6 +223,7 @@ function main() {
 		minLength: [ 100 ],
 		icon: [ 'image' ],
 		indicator: [ 'down' ],
+		size: [ 'large' ],
 		flags: [ 'progressive', 'primary' ],
 		progress: [ 0, 50, 100, false ],
 		options: [
