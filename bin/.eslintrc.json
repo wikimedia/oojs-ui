@@ -1,0 +1,12 @@
+{
+	"overrides": [
+		{
+			"files": [ "testsuitegenerator.js", "docparser.js" ],
+			"rules": {
+				"security/detect-non-literal-fs-filename": "off",
+				"security/detect-unsafe-regex": "off",
+				"n/no-process-exit": "off"
+			}
+		}
+	]
+}

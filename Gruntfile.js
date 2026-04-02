@@ -388,8 +388,8 @@ module.exports = function ( grunt ) {
 
 		// Test
 		exec: {
-			rubyTestSuiteGenerator: {
-				command: 'ruby bin/testsuitegenerator.rb src php -o tests/JSPHP-suite.json'
+			testSuiteGenerator: {
+				command: 'node bin/testsuitegenerator.js src php -o tests/JSPHP-suite.json'
 			},
 			phpGenerateJSPHPForKarma: {
 				command: 'composer update --ansi --no-progress && php bin/generate-JSPHP-for-karma.php > tests/JSPHP.test.js'
@@ -654,7 +654,7 @@ module.exports = function ( grunt ) {
 		'copy:images'
 	] );
 	grunt.registerTask( 'build-i18n', [ 'copy:i18n' ] );
-	grunt.registerTask( 'build-tests', [ 'exec:rubyTestSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
+	grunt.registerTask( 'build-tests', [ 'exec:testSuiteGenerator', 'exec:phpGenerateJSPHPForKarma' ] );
 	grunt.registerTask( 'build', [
 		'clean:build', 'fileExists', 'tyops',
 		'build-code', 'build-styling', 'build-i18n',

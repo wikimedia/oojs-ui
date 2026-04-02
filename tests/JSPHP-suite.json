@@ -9234,8 +9234,7 @@
     "tests": [
       {
         "class": "FieldsetLayout",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "FieldsetLayout",
@@ -9803,8 +9802,7 @@
     "tests": [
       {
         "class": "FormLayout",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "FormLayout",
@@ -9851,8 +9849,7 @@
     "tests": [
       {
         "class": "HorizontalLayout",
-        "config": {
-        }
+        "config": {}
       }
     ]
   },
@@ -9861,8 +9858,7 @@
     "tests": [
       {
         "class": "IndexLayout",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "IndexLayout",
@@ -10591,8 +10587,7 @@
     "tests": [
       {
         "class": "MenuLayout",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "MenuLayout",
@@ -11127,8 +11122,7 @@
     "tests": [
       {
         "class": "PanelLayout",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "PanelLayout",
@@ -11673,8 +11667,7 @@
     "tests": [
       {
         "class": "StackLayout",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "StackLayout",
@@ -12834,8 +12827,7 @@
     "tests": [
       {
         "class": "ButtonGroupWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "ButtonGroupWidget",
@@ -12940,8 +12932,7 @@
     "tests": [
       {
         "class": "ButtonInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "ButtonInputWidget",
@@ -16885,8 +16876,7 @@
     "tests": [
       {
         "class": "ButtonWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "ButtonWidget",
@@ -21396,8 +21386,7 @@
     "tests": [
       {
         "class": "CheckboxInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "CheckboxInputWidget",
@@ -22501,15 +22490,12 @@
     "tests": [
       {
         "class": "CheckboxMultiselectInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ]
+          "options": []
         }
       },
       {
@@ -22638,18 +22624,14 @@
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": ""
         }
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -22740,18 +22722,14 @@
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "ltr"
         }
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "rtl"
         }
       },
@@ -22842,9 +22820,7 @@
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "inputId": "input-id"
         }
       },
@@ -22893,18 +22869,14 @@
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": true
         }
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": false
         }
       },
@@ -22995,36 +22967,28 @@
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": -1
         }
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 0
         }
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 100
         }
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": "42"
         }
       },
@@ -23199,18 +23163,14 @@
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": ""
         }
       },
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -23301,9 +23261,7 @@
       {
         "class": "CheckboxMultiselectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "accessKey": "k"
         }
       },
@@ -23923,15 +23881,12 @@
     "tests": [
       {
         "class": "ComboBoxInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ]
+          "options": []
         }
       },
       {
@@ -24186,18 +24141,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "type": "text"
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "type": "button"
         }
       },
@@ -24288,36 +24239,28 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "placeholder": "Foo bar <b>HTML?</b>"
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "placeholder": ""
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "placeholder": " "
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "placeholder": "0"
         }
       },
@@ -24492,18 +24435,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "readOnly": true
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "readOnly": false
         }
       },
@@ -24594,9 +24533,7 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "maxLength": 100
         }
       },
@@ -24645,9 +24582,7 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "minLength": 100
         }
       },
@@ -24696,27 +24631,21 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "autocomplete": true
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "autocomplete": false
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "autocomplete": "foo"
         }
       },
@@ -24849,18 +24778,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "spellcheck": true
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "spellcheck": false
         }
       },
@@ -24951,18 +24876,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": ""
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -25053,18 +24974,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "ltr"
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "rtl"
         }
       },
@@ -25155,9 +25072,7 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "inputId": "input-id"
         }
       },
@@ -25206,18 +25121,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": true
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": false
         }
       },
@@ -25308,36 +25219,28 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": -1
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 0
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 100
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": "42"
         }
       },
@@ -25512,18 +25415,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": ""
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -25614,9 +25513,7 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "accessKey": "k"
         }
       },
@@ -25665,9 +25562,7 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "icon": "image"
         }
       },
@@ -25716,9 +25611,7 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "indicator": "down"
         }
       },
@@ -25767,18 +25660,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "flags": "progressive"
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "flags": "primary"
         }
       },
@@ -25869,18 +25758,14 @@
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "required": true
         }
       },
       {
         "class": "ComboBoxInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "required": false
         }
       },
@@ -29972,15 +29857,12 @@
     "tests": [
       {
         "class": "DropdownInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ]
+          "options": []
         }
       },
       {
@@ -30121,18 +30003,14 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": ""
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -30223,18 +30101,14 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "ltr"
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "rtl"
         }
       },
@@ -30325,9 +30199,7 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "inputId": "input-id"
         }
       },
@@ -30376,18 +30248,14 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": true
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": false
         }
       },
@@ -30478,36 +30346,28 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": -1
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 0
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 100
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": "42"
         }
       },
@@ -30682,18 +30542,14 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": ""
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -30784,9 +30640,7 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "accessKey": "k"
         }
       },
@@ -30835,18 +30689,14 @@
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "required": true
         }
       },
       {
         "class": "DropdownInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "required": false
         }
       },
@@ -31704,8 +31554,7 @@
     "tests": [
       {
         "class": "HiddenInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "HiddenInputWidget",
@@ -31766,8 +31615,7 @@
     "tests": [
       {
         "class": "IconWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "IconWidget",
@@ -32399,8 +32247,7 @@
     "tests": [
       {
         "class": "IndicatorWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "IndicatorWidget",
@@ -32852,8 +32699,7 @@
     "tests": [
       {
         "class": "LabelWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "LabelWidget",
@@ -33084,8 +32930,7 @@
     "tests": [
       {
         "class": "MessageWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "MessageWidget",
@@ -33717,8 +33562,7 @@
     "tests": [
       {
         "class": "MultilineTextInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "MultilineTextInputWidget",
@@ -38687,8 +38531,7 @@
     "tests": [
       {
         "class": "NumberInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "NumberInputWidget",
@@ -45394,8 +45237,7 @@
     "tests": [
       {
         "class": "OptionWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "OptionWidget",
@@ -46235,8 +46077,7 @@
     "tests": [
       {
         "class": "ProgressBarWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "ProgressBarWidget",
@@ -46433,8 +46274,7 @@
     "tests": [
       {
         "class": "RadioInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "RadioInputWidget",
@@ -47538,15 +47378,12 @@
     "tests": [
       {
         "class": "RadioSelectInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ]
+          "options": []
         }
       },
       {
@@ -47675,18 +47512,14 @@
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": ""
         }
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "value": "Foo bar <b>HTML?</b>"
         }
       },
@@ -47777,18 +47610,14 @@
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "ltr"
         }
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "dir": "rtl"
         }
       },
@@ -47879,9 +47708,7 @@
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "inputId": "input-id"
         }
       },
@@ -47930,18 +47757,14 @@
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": true
         }
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "disabled": false
         }
       },
@@ -48032,36 +47855,28 @@
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": -1
         }
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 0
         }
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": 100
         }
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "tabIndex": "42"
         }
       },
@@ -48236,18 +48051,14 @@
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": ""
         }
       },
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "title": "Foo bar <b>HTML?</b>"
         }
       },
@@ -48338,9 +48149,7 @@
       {
         "class": "RadioSelectInputWidget",
         "config": {
-          "options": [
-
-          ],
+          "options": [],
           "accessKey": "k"
         }
       },
@@ -48960,8 +48769,7 @@
     "tests": [
       {
         "class": "SearchInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "SearchInputWidget",
@@ -53177,8 +52985,7 @@
     "tests": [
       {
         "class": "SelectFileInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "SelectFileInputWidget",
@@ -55598,8 +55405,7 @@
     "tests": [
       {
         "class": "SelectWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "SelectWidget",
@@ -55646,8 +55452,7 @@
     "tests": [
       {
         "class": "TabOptionWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "TabOptionWidget",
@@ -56605,8 +56410,7 @@
     "tests": [
       {
         "class": "TabSelectWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "TabSelectWidget",
@@ -56883,8 +56687,7 @@
     "tests": [
       {
         "class": "TextInputWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "TextInputWidget",
@@ -61574,8 +61377,7 @@
     "tests": [
       {
         "class": "ToggleSwitchWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "ToggleSwitchWidget",
@@ -61834,8 +61636,7 @@
     "tests": [
       {
         "class": "ToggleWidget",
-        "config": {
-        }
+        "config": {}
       },
       {
         "class": "ToggleWidget",
