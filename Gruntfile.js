@@ -34,7 +34,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-cssjanus' );
 	grunt.loadNpmTasks( 'grunt-exec' );
 	grunt.loadNpmTasks( 'grunt-file-exists' );
@@ -461,21 +460,6 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-		// Development
-		watch: {
-			files: [
-				'{src,build}/**/*.js',
-				'<%= stylelint.dev %>',
-				'src/**/*.less',
-				'php/**/*.php',
-				'.{stylelintrc,eslintrc.json}',
-				'!demos/{composer.json,composer.lock}',
-				'!demos/{node_modules,dist,php,vendor}/**/*'
-			],
-			// Task set based on file extension in watch handler
-			tasks: ''
-		},
-
 		// Adding new theme
 		'string-replace': {
 			newTheme: {
@@ -556,34 +540,6 @@ module.exports = function ( grunt ) {
 					} ]
 				}
 			}
-		}
-	} );
-
-	grunt.event.on( 'watch', ( action, filepath ) => {
-		// Clear tasks set on last run.
-		grunt.config( 'watch.tasks', '' );
-		switch ( path.extname( filepath ) ) {
-			case '.js':
-				if ( filepath.includes( 'modules.js' ) ) {
-					// modules.js could change the .js or .less lists.
-					grunt.config( 'watch.tasks', 'quick-build' );
-				} else {
-					grunt.config( 'watch.tasks', 'quick-build-code' );
-				}
-				break;
-			case '.less':
-				grunt.config( 'watch.tasks', 'quick-build-css' );
-				break;
-			case '.json':
-				if ( filepath.includes( 'i18n/' ) ) {
-					// Only JS uses i18n messages at the moment, at it does
-					// so by compiling them into the library when building.
-					grunt.config( 'watch.tasks', 'quick-build-code' );
-				}
-				break;
-			case '.php':
-				grunt.config( 'watch.tasks', 'copy:demos' );
-				break;
 		}
 	} );
 
