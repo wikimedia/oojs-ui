@@ -479,6 +479,8 @@ OO.ui.isMobile = function () {
  * clipped to the viewport, e.g. dropdown menus and popups. This is meant to be overridden to avoid
  * such menus overlapping any fixed headers/toolbars/navigation used by the site.
  *
+ * Care should be taken to account for the padding changing when modal dialogs are open.
+ *
  * @return {Object} Object with the properties 'top', 'right', 'bottom', 'left', each representing
  *  the extra spacing from that edge of viewport (in pixels)
  */
