@@ -10,8 +10,8 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	 * @covers \OOUI\Tag::__construct
 	 */
 	public function testConstructor() {
-		$this->assertInstanceOf( 'OOUI\Tag', new Tag() );
-		$this->assertInstanceOf( 'OOUI\Tag', new Tag( 'input' ) );
+		$this->assertInstanceOf( Tag::class, new Tag() );
+		$this->assertInstanceOf( Tag::class, new Tag( 'input' ) );
 	}
 
 	/**
@@ -34,7 +34,7 @@ class TagTest extends \PHPUnit\Framework\TestCase {
 	 * @covers \OOUI\Tag::clearContent
 	 */
 	public function testContent() {
-		$content = new \ReflectionProperty( 'OOUI\Tag', 'content' );
+		$content = new \ReflectionProperty( Tag::class, 'content' );
 		$tag = new Tag( 'div' );
 		$aTag = new Tag( 'a' );
 		$bTag = new Tag( 'b' );
