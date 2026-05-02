@@ -3,5 +3,5 @@
 	<title>
 		printer
 	</title>
-	<path d="M5 1h10v4H5zM3 6a2 2 0 0 0-2 2v7h4v4h10v-4h4V8a2 2 0 0 0-2-2zm11 12H6v-6h8zm2-8a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/>
+	<path d="M17 5a2 2 0 0 1 2 2v9h-4v4H5v-4H1V7a2 2 0 0 1 2-2zM7 18h6v-7H7zm-4-4h2V9h10v5h2V7H3zM15 3H5V0h10z"/>
 </svg>

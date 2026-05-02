@@ -55,6 +55,12 @@
 				"rtl": "../wikimediaui/images/icons/cut-rtl.svg"
 			}
 		},
+		"diffs": {
+			"file": {
+				"ltr": "../wikimediaui/images/icons/diffs-ltr.svg",
+				"rtl": "../wikimediaui/images/icons/diffs-rtl.svg"
+			}
+		},
 		"hieroglyph": {
 			"file": "images/icons/hieroglyph.svg"
 		},
@@ -110,10 +116,7 @@
 			"file": "images/icons/ocr.svg"
 		},
 		"outline": {
-			"file": {
-				"ltr": "images/icons/outline-ltr.svg",
-				"rtl": "images/icons/outline-rtl.svg"
-			}
+			"file": "images/icons/outline.svg"
 		},
 		"palette": {
 			"file": {

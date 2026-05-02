@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
 	<title>
 		search
 	</title>
-	<path d="m19 17-5.15-5.15a7 7 0 1 0-2 2L17 19zM3.5 8A4.5 4.5 0 1 1 8 12.5 4.5 4.5 0 0 1 3.5 8"/>
+	<path d="M4.8.6a4.2 4.2 0 0 1 3.363 6.715l3.061 3.06-.848.85-3.061-3.062A4.2 4.2 0 1 1 4.8.6m0 1.2a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/>
 </svg>

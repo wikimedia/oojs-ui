@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		reference
+		level three
 	</title>
-	<path d="m15 10-2.78-2.78L9.44 10V1H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z"/>
+	<path d="M5.5 20H0v-8h5.5zm7 0H7V6h5.5zm7.5 0h-5.5V0H20z"/>
 </svg>

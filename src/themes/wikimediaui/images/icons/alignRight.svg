@@ -3,6 +3,5 @@
 	<title>
 		align right
 	</title>
-	<path d="M1 7h7v2H1zm0 4h7v2H1zm0 4h18v2H1zM1 3h18v2H1z"/>
-	<rect width="8" height="6" x="11" y="7" rx="1"/>
+	<path d="M19 17H1v-2h18zm-8-4H1v-2h10zm8 0h-6V7h6zm-8-4H1V7h10zm8-4H1V3h18z"/>
 </svg>

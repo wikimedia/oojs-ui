@@ -3,6 +3,5 @@
 	<title>
 		speech bubble
 	</title>
-	<path d="M14 14h6v6z"/>
-	<rect width="20" height="16" rx="2"/>
+	<path d="M19 2v14h-5v2.5l-1.573.82L7.685 16H1V2zM3 4v10h5.315L12 16.58V14h5V4z"/>
 </svg>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
-		outline
+		reference
 	</title>
-	<path d="M1 12h18v7H1zM1 1v8h8V1zm6 6H3V3h4z"/>
+	<path d="M18 1v18H2V1zM4 3v14h12V3h-6v9.5h-.914L8 11.414 6.914 12.5H6V3z"/>
 </svg>
