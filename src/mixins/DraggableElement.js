@@ -194,7 +194,7 @@ OO.ui.mixin.DraggableElement.prototype.onDrop = function ( e ) {
 
 /**
  * In order for drag/drop to work, the dragover event must
- * return false and stop propogation.
+ * return false and stop propagation.
  *
  * @param {jQuery.Event} e Drag event
  * @private

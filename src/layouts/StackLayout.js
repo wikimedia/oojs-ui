@@ -121,7 +121,7 @@ OO.ui.StackLayout.prototype.unsetCurrentItem = function () {
 };
 
 /**
- * Set the hideUntilFound config (see contructor)
+ * Set the hideUntilFound config (see constructor)
  *
  * @param {boolean} hideUntilFound
  */

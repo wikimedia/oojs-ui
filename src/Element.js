@@ -1,4 +1,4 @@
-// getDocument( element ) is preferrable to window.document
+// getDocument( element ) is preferable to window.document
 /* global document:off */
 
 /**
@@ -706,8 +706,8 @@ OO.ui.Element.static.getClosestScrollableContainer = function ( el, dimension ) 
 			const val = $parent.css( props[ i ] );
 			// We assume that elements with 'overflow' (in any direction) set to 'hidden' will
 			// never be scrolled in that direction, but they can actually be scrolled
-			// programatically. The user can unintentionally perform a scroll in such case even if
-			// the application doesn't scroll programatically, e.g. when jumping to an anchor, or
+			// programmatically. The user can unintentionally perform a scroll in such case even if
+			// the application doesn't scroll programmatically, e.g. when jumping to an anchor, or
 			// when using built-in find functionality.
 			// This could cause funny issues...
 			if ( val === 'auto' || val === 'scroll' ) {

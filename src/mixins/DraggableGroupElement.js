@@ -167,7 +167,7 @@ OO.ui.mixin.DraggableGroupElement.prototype.onItemDropOrDragEnd = function () {
 		this.updateIndexes();
 	}
 	this.unsetDragItem();
-	// Return false to prevent propogation
+	// Return false to prevent propagation
 	return false;
 };
 

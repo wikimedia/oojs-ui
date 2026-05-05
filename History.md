@@ -3024,7 +3024,7 @@ built in the previous release.
 * WindowManager: Add `WindowInstance` - a Promise-based lifecycle object (Timo Tijhof)
 * WindowManager: Handle errors better in `#closeWindow` (Bartosz Dziewoński)
 
-* Allow *even more* widgets to be focussed programatically (Bartosz Dziewoński)
+* Allow *even more* widgets to be focussed programmatically (Bartosz Dziewoński)
 * Only cancel mouse down event if tool in toolgroup clicked on (Ed Sanders)
 * Re-introduce `.simulateLabelClick()` as a separate method from .focus() (Bartosz Dziewoński)
 
@@ -3061,7 +3061,7 @@ built in the previous release.
 
 ## v0.21.4 / 2017-05-16
 ### Features
-* Allow more widgets to be focussed programatically (Bartosz Dziewoński)
+* Allow more widgets to be focussed programmatically (Bartosz Dziewoński)
 * Generalize `.getInputId()` for all widgets (Bartosz Dziewoński)
 * Use `.focus()` method when possible instead of looking inside widgets (Bartosz Dziewoński)
 * TagMultiselectWidget: Fix Control+Backspace keys to delete last item (Bartosz Dziewoński)

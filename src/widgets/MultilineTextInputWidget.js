@@ -6,7 +6,7 @@
  * Please see the [OOUI documentation on MediaWiki][1] for more information and examples.
  *
  * MultilineTextInputWidgets can also be used when a single line string is required, but
- * we want to display it to the user over mulitple lines (wrapped). This is done by setting
+ * we want to display it to the user over multiple lines (wrapped). This is done by setting
  * the `allowLinebreaks` config to `false`.
  *
  * This widget can be used inside an HTML form, such as a OO.ui.FormLayout.

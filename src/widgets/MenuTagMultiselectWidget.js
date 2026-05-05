@@ -326,7 +326,7 @@ OO.ui.MenuTagMultiselectWidget.prototype.getTagInfoFromInput = function () {
 /**
  * Create the menu for this widget. This is in a separate method so that
  * child classes can override this without polluting the constructor with
- * unnecessary extra objects that will be overidden.
+ * unnecessary extra objects that will be overridden.
  *
  * @param {Object} menuConfig Configuration options
  * @return {OO.ui.MenuSelectWidget} Menu widget
