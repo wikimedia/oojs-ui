@@ -400,7 +400,7 @@ OO.ui.msg = function ( key, ...params ) {
  * @return {Function} Function that returns the resolved message when executed
  */
 OO.ui.deferMsg = function () {
-	// eslint-disable-next-line mediawiki/msg-doc
+
 	return () => OO.ui.msg( ...arguments );
 };
 
