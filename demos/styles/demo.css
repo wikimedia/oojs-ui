@@ -557,6 +557,10 @@ p:first-child {
 	opacity: 1 !important;
 }
 
+.demo-icons .demo-icon-deprecated {
+	opacity: 0.5;
+}
+
 /* Widgets demo */
 
 .oo-ui-horizontalLayout > .oo-ui-textInputWidget,

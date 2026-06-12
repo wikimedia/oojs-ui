@@ -53,14 +53,15 @@ Demo.static.pages.icons = function ( demo ) {
 			const deprecationMessage = icons[ icon ].deprecated;
 			const iconWidget = new OO.ui.IconWidget( {
 				icon: icon,
-				disabled: !!deprecationMessage,
 				title: deprecationMessage || icon
 			} );
 			iconsWidgets.push( iconWidget );
 			iconsFieldset.addItems( [
 				new OO.ui.FieldLayout( iconWidget, {
 					label: icon,
-					align: 'inline'
+					align: 'inline',
+					classes: deprecationMessage ? [ 'demo-icon-deprecated' ] : [],
+					title: deprecationMessage || null
 				} )
 			] );
 			if ( icons[ icon ].file.lang ) {
