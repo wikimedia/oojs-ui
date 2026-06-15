@@ -363,17 +363,6 @@ class Tag {
 	}
 
 	/**
-	 * Check whether the string $haystack begins with the string $needle.
-	 *
-	 * @param string $haystack
-	 * @param string $needle
-	 * @return bool True if $haystack begins with $needle, false otherwise.
-	 */
-	private static function stringStartsWith( $haystack, $needle ) {
-		return strncmp( $haystack, $needle, strlen( $needle ) ) === 0;
-	}
-
-	/**
 	 * Check whether user-supplied URL is safe, that is, whether outputting it will not result in XSS
 	 * vulnerability. (Note that URLs must be HTML-escaped regardless of this check.)
 	 *
@@ -409,16 +398,16 @@ class Tag {
 		}
 
 		foreach ( $protocolAllowList as $protocol ) {
-			if ( self::stringStartsWith( $url, $protocol . ':' ) ) {
+			if ( str_starts_with( $url, $protocol . ':' ) ) {
 				return true;
 			}
 		}
 
 		// This matches '//' too
-		if ( self::stringStartsWith( $url, '/' ) || self::stringStartsWith( $url, './' ) ) {
+		if ( str_starts_with( $url, '/' ) || str_starts_with( $url, './' ) ) {
 			return true;
 		}
-		if ( self::stringStartsWith( $url, '?' ) || self::stringStartsWith( $url, '#' ) ) {
+		if ( str_starts_with( $url, '?' ) || str_starts_with( $url, '#' ) ) {
 			return true;
 		}
 
