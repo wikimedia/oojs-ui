@@ -3,5 +3,5 @@
 	<title>
 		indent
 	</title>
-	<path d="M19 15v2H1v-2zm-6-4v2H1v-2zm6-4v6h-1.5l-3-3 3-3zm-6 0v2H1V7zm6-4v2H1V3z"/>
+	<path d="M1 17h18v-2H1zm14-7 3 3h1V7h-1zM1 13h12v-2H1zm0-4h12V7H1zm0-4h18V3H1z"/>
 </svg>

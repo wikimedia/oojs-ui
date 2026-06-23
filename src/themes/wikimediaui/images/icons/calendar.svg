@@ -4,5 +4,5 @@
 		calendar
 	</title>
 	<path d="M10 14H7v-3h3z"/>
-	<path d="M7 3h6V1h2v2h4v16H1V3h4V1h2zM3 17h14V9H3zM3 7h14V5H3z"/>
+	<path d="M7 3h6V1h2v2h5v15H0V3h5V1h2zM2 16h16V8H2z"/>
 </svg>
