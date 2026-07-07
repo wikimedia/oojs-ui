@@ -3,5 +3,5 @@
 	<title>
 		bullet list
 	</title>
-	<path d="M17 17h2v-2h-2zM1 17h14v-2H1zm16-6h2V9h-2zM1 11h14V9H1zm16-6h2V3h-2zM1 5h14V3H1z"/>
+	<path d="M1 3h14v2H1zm0 6h14v2H1zm0 6h14v2H1zM17 3h2v2h-2zm0 6h2v2h-2zm0 6h2v2h-2z"/>
 </svg>
