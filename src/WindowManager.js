@@ -920,8 +920,11 @@ OO.ui.WindowManager.prototype.toggleIsolation = function ( isolate ) {
 
 /**
  * Destroy the window manager.
+ *
+ * @return {jQuery.Promise} Promise resolved when all windows are closed and removed
  */
 OO.ui.WindowManager.prototype.destroy = function () {
-	this.clearWindows();
+	const promise = this.clearWindows();
 	this.$element.remove();
+	return promise;
 };
