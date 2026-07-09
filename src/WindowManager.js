@@ -726,7 +726,7 @@ OO.ui.WindowManager.prototype.clearWindows = function () {
 OO.ui.WindowManager.prototype.updateWindowSize = function ( win ) {
 	// Bypass for non-current, and thus invisible, windows
 	if ( win !== this.currentWindow ) {
-		return;
+		return this;
 	}
 
 	const size = win.getSize();
