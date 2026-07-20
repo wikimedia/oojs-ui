@@ -880,7 +880,11 @@ OO.ui.WindowManager.prototype.toggleIsolation = function ( isolate ) {
 		// Walk up the tree
 		while ( !$el.is( 'body' ) && $el.length ) {
 			// Hide all siblings at each level, just leaving the path to the manager visible.
-			const $siblings = $el.siblings().not( 'script' );
+			// Exclude default overlay and teleport target in case they're used by dropdown menus etc.
+			// of widgets placed inside the current window (T409300).
+			const $siblings = $el.siblings().not( 'script' )
+				.not( OO.ui.getTeleportTarget() )
+				.not( OO.ui.getDefaultOverlay() );
 			// Ensure the path to this manager is visible, as it may have been hidden by
 			// another manager.
 			$el
