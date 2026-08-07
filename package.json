@@ -40,7 +40,7 @@
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.32.5",
 		"eslint-plugin-html": "7.1.0",
-		"grunt": "1.6.1",
+		"grunt": "1.6.3",
 		"grunt-banana-checker": "0.13.0",
 		"grunt-contrib-clean": "2.0.1",
 		"grunt-contrib-concat": "2.1.0",
