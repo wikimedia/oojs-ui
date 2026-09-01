@@ -430,6 +430,7 @@ module.exports = function ( grunt ) {
 					'tests/Process.test.js',
 					'tests/windows.test.js',
 					'tests/mixins/*.test.js',
+					'tests/toolgroups/*.test.js',
 					'tests/widgets/*.test.js',
 					'tests/JSPHP.test.js'
 				],

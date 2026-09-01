@@ -126,6 +126,15 @@ OO.ui.ListToolGroup = function OoUiListToolGroup( toolbar, config ) {
 
 OO.inheritClass( OO.ui.ListToolGroup, OO.ui.PopupToolGroup );
 
+/* Events */
+
+/**
+ * An 'expand' event is emitted when the collapsible tools are shown or hidden.
+ *
+ * @event OO.ui.ListToolGroup#expand
+ * @param {boolean} expanded The collapsible tools are shown
+ */
+
 /* Static Properties */
 
 /**
@@ -178,8 +187,7 @@ OO.ui.ListToolGroup.prototype.getExpandCollapseTool = function () {
 		OO.inheritClass( ExpandCollapseTool, OO.ui.Tool );
 
 		ExpandCollapseTool.prototype.onSelect = function () {
-			this.toolGroup.expanded = !this.toolGroup.expanded;
-			this.toolGroup.updateCollapsibleState();
+			this.toolGroup.setExpanded( !this.toolGroup.expanded );
 			this.setActive( false );
 		};
 		ExpandCollapseTool.prototype.onUpdateState = function () {
@@ -212,6 +220,24 @@ OO.ui.ListToolGroup.prototype.onMouseKeyUp = function ( e ) {
 	} else {
 		return OO.ui.ListToolGroup.super.prototype.onMouseKeyUp.call( this, e );
 	}
+};
+
+/**
+ * Show or hide the collapsible tools.
+ *
+ * This does nothing if the group is already in the given state.
+ *
+ * @param {boolean} expanded Show the collapsible tools
+ * @fires OO.ui.ListToolGroup#expand
+ */
+OO.ui.ListToolGroup.prototype.setExpanded = function ( expanded ) {
+	expanded = !!expanded;
+	if ( expanded === this.expanded ) {
+		return;
+	}
+	this.expanded = expanded;
+	this.updateCollapsibleState();
+	this.emit( 'expand', expanded );
 };
 
 OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
