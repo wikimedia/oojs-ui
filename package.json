@@ -38,7 +38,7 @@
 		"oojs": "7.0.1"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.32.5",
+		"eslint-config-wikimedia": "0.32.6",
 		"eslint-plugin-html": "7.1.0",
 		"grunt": "1.6.3",
 		"grunt-banana-checker": "0.13.0",
