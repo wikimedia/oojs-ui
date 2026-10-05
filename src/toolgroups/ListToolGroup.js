@@ -169,7 +169,16 @@ OO.ui.ListToolGroup.prototype.populate = function () {
 	// Keep at the end, even when tools are added
 	this.$group.append( this.getExpandCollapseTool().$element );
 
-	this.getExpandCollapseTool().toggle( this.collapsibleTools.length !== 0 );
+	this.updateCollapsibleState();
+};
+
+/**
+ * @inheritdoc
+ */
+OO.ui.ListToolGroup.prototype.setPromotedTools = function () {
+	// Parent method
+	OO.ui.ListToolGroup.super.prototype.setPromotedTools.apply( this, arguments );
+
 	this.updateCollapsibleState();
 };
 
@@ -248,9 +257,13 @@ OO.ui.ListToolGroup.prototype.updateCollapsibleState = function () {
 		.setIcon( icon )
 		.setTitle( OO.ui.msg( this.expanded ? 'ooui-toolgroup-collapse' : 'ooui-toolgroup-expand' ) );
 
-	for ( let i = 0; i < this.collapsibleTools.length; i++ ) {
-		this.collapsibleTools[ i ].toggle( this.expanded );
-	}
+	let hasCollapsibleTools = false;
+	this.collapsibleTools.forEach( ( tool ) => {
+		// Promoted tools are not in the popup, so are always shown
+		tool.toggle( this.expanded || tool.isPromoted() );
+		hasCollapsibleTools = hasCollapsibleTools || !tool.isPromoted();
+	} );
+	this.getExpandCollapseTool().toggle( hasCollapsibleTools );
 
 	// Re-evaluate clipping, because our height has changed
 	this.clip();

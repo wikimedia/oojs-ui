@@ -313,6 +313,7 @@ OO.ui.Toolbar = function OoUiToolbar( toolFactory, toolGroupFactory, config ) {
 	this.initialized = false;
 	this.narrow = false;
 	this.narrowThreshold = null;
+	this.promotionMeasurements = null;
 	this.onWindowResizeHandler = this.onWindowResize.bind( this );
 	this.$overlay = ( config.$overlay === true ? OO.ui.getDefaultOverlay() : config.$overlay ) ||
 		this.$element;
@@ -432,6 +433,7 @@ OO.ui.Toolbar.prototype.onPointerDown = function ( e ) {
  */
 OO.ui.Toolbar.prototype.onWindowResize = function () {
 	this.setNarrow( this.$bar[ 0 ].clientWidth <= this.getNarrowThreshold() );
+	this.updatePromotedTools();
 };
 
 /**
@@ -472,6 +474,214 @@ OO.ui.Toolbar.prototype.getNarrowThreshold = function () {
 			this.$actions[ 0 ].offsetWidth;
 	}
 	return this.narrowThreshold;
+};
+
+/**
+ * Get the sets of tools that can be promoted out of popup toolgroups, in priority order.
+ *
+ * Sets are ordered by toolgroup, in the order the toolgroups were set up, then by the order
+ * given in each toolgroup's `promoteToBar` config option. The tools in each set are only
+ * promoted together.
+ *
+ * @return {OO.ui.Tool[][]} Sets of promotable tools
+ */
+OO.ui.Toolbar.prototype.getPromotableToolSets = function () {
+	let sets = [];
+	this.items.forEach( ( toolGroup ) => {
+		if ( toolGroup instanceof OO.ui.PopupToolGroup ) {
+			sets = sets.concat( toolGroup.getPromotableToolSets() );
+		}
+	} );
+	return sets;
+};
+
+/**
+ * Get the tools that can be promoted out of popup toolgroups, in priority order.
+ *
+ * See #getPromotableToolSets.
+ *
+ * @return {OO.ui.Tool[]} Promotable tools
+ */
+OO.ui.Toolbar.prototype.getPromotableTools = function () {
+	return [].concat( ...this.getPromotableToolSets() );
+};
+
+/**
+ * Update which tools are promoted out of popup toolgroups, based on the available room.
+ *
+ * This is called automatically when the window is resized.
+ */
+OO.ui.Toolbar.prototype.updatePromotedTools = function () {
+	const sets = this.getPromotableToolSets();
+	if ( !sets.length ) {
+		return;
+	}
+	const count = this.getPromotedToolCount( [].concat( ...sets ) );
+
+	// Promote whole sets, in order, while they fit in the count
+	let promotedTools = [];
+	sets.every( ( set ) => {
+		if ( promotedTools.length + set.length > count ) {
+			return false;
+		}
+		promotedTools = promotedTools.concat( set );
+		return true;
+	} );
+	this.setPromotedTools( promotedTools );
+};
+
+/**
+ * Promote tools out of their popup toolgroups, and demote all others.
+ *
+ * @private
+ * @param {OO.ui.Tool[]} tools Tools to promote
+ */
+OO.ui.Toolbar.prototype.setPromotedTools = function ( tools ) {
+	this.items.forEach( ( toolGroup ) => {
+		if ( toolGroup instanceof OO.ui.PopupToolGroup ) {
+			toolGroup.setPromotedTools(
+				tools.filter( ( tool ) => tool.toolGroup === toolGroup )
+			);
+		}
+	} );
+};
+
+/**
+ * Get the number of tools that should be promoted out of popup toolgroups.
+ *
+ * Tools are promoted from the start of `tools`, one set at a time (see
+ * #getPromotableToolSets).
+ *
+ * By default, this measures the toolbar and the promotable tools, and returns how many fit in
+ * the toolbar without wrapping. No tools are promoted in narrow mode.
+ *
+ * This can be overridden in a subclass e.g. when the toolbar is laid out with flexbox:
+ *
+ *     MobileToolbar.prototype.getPromotedToolCount = function ( tools ) {
+ *         // Room for 8 tools of >=45px each, 5 of which are always shown
+ *         return this.$bar[ 0 ].clientWidth > 360 ? 3 : 0;
+ *     };
+ *
+ * @param {OO.ui.Tool[]} tools Promotable tools, in priority order, see #getPromotableTools
+ * @return {number} Number of tools to promote
+ */
+OO.ui.Toolbar.prototype.getPromotedToolCount = function ( tools ) {
+	if ( this.isNarrow() ) {
+		return 0;
+	}
+	const measurements = this.getPromotionMeasurements( tools ),
+		available = this.$bar[ 0 ].clientWidth - measurements.baseWidth,
+		// Width each group adds to the toolbar, and how, for the tools promoted so far
+		groupStates = new Map(),
+		// Only consider promoting whole sets
+		lastToolsInSets = this.getPromotableToolSets().map( ( set ) => set[ set.length - 1 ] );
+
+	let width = 0,
+		count = 0;
+	for ( let i = 0; i < tools.length; i++ ) {
+		const tool = tools[ i ],
+			toolGroup = tool.toolGroup;
+		let state = groupStates.get( toolGroup );
+		if ( !state ) {
+			state = { count: 0, toolsWidth: 0, firstIndex: null, width: 0 };
+			groupStates.set( toolGroup, state );
+		}
+		state.count++;
+		state.toolsWidth += measurements.toolWidths[ i ];
+		// Track which promoted tool will be displayed first in this group
+		if (
+			state.firstIndex === null ||
+			toolGroup.items.indexOf( tool ) < toolGroup.items.indexOf( tools[ state.firstIndex ] )
+		) {
+			state.firstIndex = i;
+		}
+
+		// The first tool in the promoted tools container doesn't have the margin
+		// that separates adjacent tools
+		let groupWidth = state.toolsWidth - measurements.toolMargins[ state.firstIndex ] +
+			measurements.containerWidths.get( toolGroup );
+		if ( state.count === toolGroup.items.length ) {
+			// All of this group's tools are promoted, so the group will be hidden
+			groupWidth -= measurements.groupWidths.get( toolGroup );
+		}
+		width += groupWidth - state.width;
+		state.width = groupWidth;
+
+		if ( width < available && lastToolsInSets.includes( tool ) ) {
+			count = i + 1;
+		}
+	}
+	return count;
+};
+
+/**
+ * Get the (lazily-computed) widths used to decide how many tools to promote.
+ *
+ * Measurements are recomputed if the list of promotable tools changes. Like the narrow threshold,
+ * they are otherwise not updated if the content of the toolbar changes.
+ *
+ * @private
+ * @param {OO.ui.Tool[]} tools Promotable tools
+ * @return {Object} Measurements: `baseWidth`, the width of the toolbar contents with no tools
+ *  promoted; `toolWidths`, the width of each tool in `tools` when promoted, including margins;
+ *  `toolMargins`, the horizontal margins included in each of `toolWidths`; `containerWidths`,
+ *  a Map of each toolgroup to the width its promoted tools container adds, excluding the tools;
+ *  and `groupWidths`, a Map of each toolgroup to its own width
+ */
+OO.ui.Toolbar.prototype.getPromotionMeasurements = function ( tools ) {
+	const cached = this.promotionMeasurements;
+	if (
+		cached && cached.tools.length === tools.length &&
+		cached.tools.every( ( tool, i ) => tool === tools[ i ] )
+	) {
+		return cached;
+	}
+
+	const promotedTools = [];
+	this.items.forEach( ( toolGroup ) => {
+		if ( toolGroup instanceof OO.ui.PopupToolGroup ) {
+			promotedTools.push( ...toolGroup.getPromotedTools() );
+		}
+	} );
+
+	// Use unrounded widths, as rounding errors add up and can cause the toolbar to wrap
+	const getWidth = ( el ) => el.getBoundingClientRect().width;
+	// Width including horizontal margins
+	const getOuterWidth = ( el ) => {
+		const style = this.getElementWindow().getComputedStyle( el );
+		return getWidth( el ) + parseFloat( style.marginLeft ) + parseFloat( style.marginRight );
+	};
+
+	this.setPromotedTools( [] );
+	const baseWidth = getWidth( this.$group[ 0 ] ) + getWidth( this.$after[ 0 ] ) +
+		getWidth( this.$actions[ 0 ] );
+	const groupWidths = new Map();
+	tools.forEach( ( tool ) => {
+		groupWidths.set( tool.toolGroup, getOuterWidth( tool.toolGroup.$element[ 0 ] ) );
+	} );
+
+	this.setPromotedTools( tools );
+	// Widths include margins, which separate a tool from the one before it
+	const toolWidths = tools.map( ( tool ) => getOuterWidth( tool.$element[ 0 ] ) );
+	const toolMargins = tools.map( ( tool, i ) => toolWidths[ i ] - getWidth( tool.$element[ 0 ] ) );
+	const containerWidths = new Map();
+	groupWidths.forEach( ( width, toolGroup ) => {
+		let containerWidth = getOuterWidth( toolGroup.$promoted[ 0 ] );
+		tools.forEach( ( tool, i ) => {
+			if ( tool.toolGroup === toolGroup ) {
+				containerWidth -= toolWidths[ i ];
+			}
+		} );
+		containerWidths.set( toolGroup, containerWidth );
+	} );
+
+	// Restore the previous state, in case the caller doesn't change it
+	this.setPromotedTools( promotedTools );
+
+	this.promotionMeasurements = {
+		tools, baseWidth, toolWidths, toolMargins, containerWidths, groupWidths
+	};
+	return this.promotionMeasurements;
 };
 
 /**
@@ -536,6 +746,9 @@ OO.ui.Toolbar.prototype.setup = function ( groups ) {
 		} );
 	}
 	this.addItems( items );
+	if ( this.initialized ) {
+		this.updatePromotedTools();
+	}
 };
 
 /**

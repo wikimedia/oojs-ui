@@ -61,6 +61,7 @@ OO.ui.Tool = function OoUiTool( toolGroup, config ) {
 	this.toolGroup = toolGroup;
 	this.toolbar = this.toolGroup.getToolbar();
 	this.active = false;
+	this.promoted = false;
 	this.$title = $( '<span>' );
 	this.$accel = $( '<span>' );
 	this.$link = $( '<a>' );
@@ -278,6 +279,37 @@ OO.ui.Tool.prototype.setActive = function ( state ) {
 };
 
 /**
+ * Check if the tool has been promoted out of its popup toolgroup.
+ *
+ * See the `promoteToBar` config option of {@link OO.ui.PopupToolGroup}.
+ *
+ * @return {boolean} Tool is promoted
+ */
+OO.ui.Tool.prototype.isPromoted = function () {
+	return this.promoted;
+};
+
+/**
+ * Mark the tool as promoted out of its popup toolgroup.
+ *
+ * This is called by the toolgroup, which is responsible for moving the tool's element.
+ * Promoted tools are displayed like tools in a {@link OO.ui.BarToolGroup bar} toolgroup.
+ *
+ * @param {boolean} [promoted=false] Tool is promoted
+ * @chainable
+ * @return {OO.ui.Tool} The tool, for chaining
+ */
+OO.ui.Tool.prototype.setPromoted = function ( promoted ) {
+	promoted = !!promoted;
+	if ( this.promoted !== promoted ) {
+		this.promoted = promoted;
+		this.$element.toggleClass( 'oo-ui-tool-promoted', promoted );
+		this.updateTitle();
+	}
+	return this;
+};
+
+/**
  * Set the tool #title.
  *
  * @param {string|Function} title Title text or a function that returns text
@@ -362,8 +394,12 @@ OO.ui.Tool.prototype.onToolbarResize = function () {
  * Update the title.
  */
 OO.ui.Tool.prototype.updateTitle = function () {
-	const titleTooltips = this.toolGroup.constructor.static.titleTooltips,
-		accelTooltips = this.toolGroup.constructor.static.accelTooltips,
+	// Promoted tools are displayed like tools in a BarToolGroup
+	const groupStatic = this.promoted ?
+			OO.ui.BarToolGroup.static :
+			this.toolGroup.constructor.static,
+		titleTooltips = groupStatic.titleTooltips,
+		accelTooltips = groupStatic.accelTooltips,
 		accel = this.toolbar.getToolAccelerator( this.constructor.static.name ),
 		tooltipParts = [],
 		title = this.getTitle();

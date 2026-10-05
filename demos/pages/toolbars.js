@@ -411,6 +411,49 @@ Demo.static.pages.toolbars = function ( demo ) {
 		}
 	] );
 
+	// Toolbar with tools promoted out of popup toolgroups when there is space
+	toolbars[ 3 ].setup( [
+		{
+			name: 'history',
+			type: 'bar',
+			include: [ { group: 'history' } ]
+		},
+		{
+			name: 'textStyle',
+			type: 'list',
+			label: 'Style text',
+			invisibleLabel: true,
+			icon: 'textStyle',
+			include: [ { group: 'styleTools' } ],
+			// Promoted in this order as space allows.
+			// Tools in nested arrays are promoted together.
+			promoteToBar: [ [ 'bold', 'italic' ], 'underline', 'strikethrough', [ 'superscript', 'subscript' ], 'code' ]
+		},
+		{
+			name: 'structure',
+			type: 'list',
+			label: 'Structure',
+			invisibleLabel: true,
+			icon: 'listBullet',
+			include: [ { group: 'structureTools' } ],
+			promoteToBar: [ [ 'bullet', 'number' ] ]
+		},
+		{
+			name: 'insert',
+			type: 'list',
+			label: 'Insert',
+			include: [ { group: 'insertTools' } ],
+			promoteToBar: [ 'media', 'template', 'table', 'comment' ],
+			allowCollapse: [ 'hieroglyphs', 'score', 'signature', 'gallery', 'chem', 'math', 'syntaxHighlightDialog', 'graph', 'referencesList' ]
+		},
+		{
+			name: 'publish',
+			align: 'after',
+			type: 'bar',
+			include: [ { group: 'publish' } ]
+		}
+	] );
+
 	for ( i = 0; i < toolbars.length; i++ ) {
 		toolbars[ i ].emit( 'updateState' );
 	}
@@ -590,6 +633,12 @@ Demo.static.pages.toolbars = function ( demo ) {
 		createToolGroup( i, 'listTools' );
 	}
 
+	createToolGroup( 3, 'history' );
+	createToolGroup( 3, 'styleTools' );
+	createToolGroup( 3, 'structureTools' );
+	createToolGroup( 3, 'insertTools' );
+	createToolGroup( 3, 'publish' );
+
 	for ( i = 0; i < toolbars.length; i++ ) {
 		$containers = $containers.add(
 			new OO.ui.PanelLayout( {
@@ -612,7 +661,8 @@ Demo.static.pages.toolbars = function ( demo ) {
 			.append(
 				$containers.eq( 0 ).append( '<div class="demo-toolbars-contents">Toolbar</div>' ),
 				$containers.eq( 1 ).append( '<div class="demo-toolbars-contents">Word processor toolbar</div>' ),
-				$containers.eq( 2 ).prepend( '<div class="demo-toolbars-contents">Word processor toolbar set to <code>position: &#39;bottom&#39;</code></div>' )
+				$containers.eq( 2 ).prepend( '<div class="demo-toolbars-contents">Word processor toolbar set to <code>position: &#39;bottom&#39;</code></div>' ),
+				$containers.eq( 3 ).append( '<div class="demo-toolbars-contents">Tools promoted out of menus when there is space (resize the window to see tools promoted and demoted)</div>' )
 			)
 			/* eslint-enable no-jquery/no-parse-html-literal */
 	);
