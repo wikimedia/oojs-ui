@@ -6,6 +6,16 @@
 
 	> .oo-ui-labelElement-label {
 		display: block;
+
+		// Keep the first line aligned with the icon when the label is
+		// wrapped in block elements such as `<p>` (T442246)
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	.theme-oo-ui-messageWidget();
