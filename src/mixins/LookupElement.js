@@ -357,21 +357,21 @@ OO.ui.mixin.LookupElement.prototype.setReadOnly = function ( readOnly ) {
 };
 
 /**
- * @inheritdoc OO.ui.mixin.RequestManager
+ * @inheritdoc
  */
 OO.ui.mixin.LookupElement.prototype.getRequestQuery = function () {
 	return this.getValue();
 };
 
 /**
- * @inheritdoc OO.ui.mixin.RequestManager
+ * @inheritdoc
  */
 OO.ui.mixin.LookupElement.prototype.getRequest = function () {
 	return this.getLookupRequest();
 };
 
 /**
- * @inheritdoc OO.ui.mixin.RequestManager
+ * @inheritdoc
  */
 OO.ui.mixin.LookupElement.prototype.getRequestCacheDataFromResponse = function ( response ) {
 	return this.getLookupCacheDataFromResponse( response );

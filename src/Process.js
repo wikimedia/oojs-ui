@@ -18,7 +18,7 @@
  * @constructor
  * @param {number|jQuery.Promise|Function} step Number of milliseconds to wait before proceeding,
  *  promise that must be resolved before proceeding, or a function to execute. See #createStep for
- *  more information. See #createStep for more information.
+ *  more information.
  * @param {Object} [context=null] Execution context of the function. The context is ignored if the
  *  step is a number or promise.
  */
@@ -142,7 +142,11 @@ OO.ui.Process.prototype.createStep = function ( step, context ) {
 /**
  * Add step to the beginning of the process.
  *
- * @inheritdoc #createStep
+ * @param {number|jQuery.Promise|Function} step Number of milliseconds to wait before proceeding,
+ *  promise that must be resolved before proceeding, or a function to execute. See #createStep for
+ *  more information.
+ * @param {Object} [context=null] Execution context of the function. The context is ignored if the
+ *  step is a number or promise.
  * @return {OO.ui.Process} this
  * @chainable
  */
@@ -154,7 +158,11 @@ OO.ui.Process.prototype.first = function ( step, context ) {
 /**
  * Add step to the end of the process.
  *
- * @inheritdoc #createStep
+ * @param {number|jQuery.Promise|Function} step Number of milliseconds to wait before proceeding,
+ *  promise that must be resolved before proceeding, or a function to execute. See #createStep for
+ *  more information.
+ * @param {Object} [context=null] Execution context of the function. The context is ignored if the
+ *  step is a number or promise.
  * @return {OO.ui.Process} this
  * @chainable
  */

@@ -66,7 +66,13 @@ OO.initClass( OO.ui.mixin.DraggableElement );
 /* Static Properties */
 
 /**
- * @inheritdoc OO.ui.mixin.ButtonElement
+ * Cancel mouse down events.
+ *
+ * This is `false` so that dragging is possible when the element is also a button.
+ * See {@link OO.ui.mixin.ButtonElement.static.cancelButtonMouseDownEvents}.
+ *
+ * @static
+ * @property {boolean}
  */
 OO.ui.mixin.DraggableElement.static.cancelButtonMouseDownEvents = false;
 

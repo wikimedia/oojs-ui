@@ -394,7 +394,7 @@ OO.ui.Toolbar.prototype.getToolGroupFactory = function () {
 };
 
 /**
- * @inheritdoc {OO.ui.mixin.GroupElement}
+ * @inheritdoc
  */
 OO.ui.Toolbar.prototype.insertItemElements = function ( item ) {
 	// Mixin method

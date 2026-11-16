@@ -263,11 +263,11 @@ OO.ui.ButtonWidget.prototype.setRel = function ( rel ) {
 // Override method visibility hints from ButtonElement
 /**
  * @method setActive
- * @inheritdoc OO.ui.mixin.ButtonElement
+ * @inheritdoc
  * @memberof OO.ui.ButtonWidget#
  */
 /**
  * @method isActive
- * @inheritdoc OO.ui.mixin.ButtonElement
+ * @inheritdoc
  * @memberof OO.ui.ButtonWidget#
  */

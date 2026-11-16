@@ -237,7 +237,9 @@ OO.ui.mixin.TabIndexedElement.prototype.blur = function () {
 };
 
 /**
- * @inheritdoc OO.ui.Widget
+ * Simulate the behavior of clicking on a label (a HTML `<label>` element) bound to this input.
+ *
+ * This focuses the element. See {@link OO.ui.Widget#simulateLabelClick}.
  */
 OO.ui.mixin.TabIndexedElement.prototype.simulateLabelClick = function () {
 	this.focus();

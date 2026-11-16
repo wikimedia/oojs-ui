@@ -421,7 +421,7 @@ OO.ui.Tool.prototype.updateTitle = function () {
 };
 
 /**
- * @inheritdoc OO.ui.mixin.IconElement
+ * @inheritdoc
  */
 OO.ui.Tool.prototype.setIcon = function ( icon ) {
 	// Mixin method

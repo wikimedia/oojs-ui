@@ -134,9 +134,13 @@ OO.ui.MultilineTextInputWidget.prototype.updatePosition = function () {
 };
 
 /**
- * @inheritdoc
+ * Handle key press events.
  *
- * Modify to emit 'enter' on Ctrl/Meta+Enter, instead of plain Enter
+ * Emit 'enter' on Ctrl/Meta+Enter, instead of plain Enter.
+ *
+ * @private
+ * @param {jQuery.Event} e Key press event
+ * @fires OO.ui.TextInputWidget#enter If Ctrl/Meta+Enter is pressed
  */
 OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
 	if ( !this.allowLinebreaks ) {
@@ -146,7 +150,8 @@ OO.ui.MultilineTextInputWidget.prototype.onKeyPress = function ( e ) {
 		if ( e.which === OO.ui.Keys.ENTER ) {
 			e.preventDefault();
 		}
-		return OO.ui.TextInputWidget.prototype.onKeyPress.call( this, e );
+		OO.ui.TextInputWidget.prototype.onKeyPress.call( this, e );
+		return;
 	}
 	if (
 		( e.which === OO.ui.Keys.ENTER && ( e.ctrlKey || e.metaKey ) ) ||
