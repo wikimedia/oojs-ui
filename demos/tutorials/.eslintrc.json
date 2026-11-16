@@ -1,7 +1,0 @@
-{
-	"globals": {
-		"Tutorials": "writable",
-		"Widgets": "writable",
-		"Prism": "readonly"
-	}
-}

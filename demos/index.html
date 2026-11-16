@@ -79,7 +79,7 @@
 	<script src="pages/widgets.js"></script>
 	<script src="pages/toolbars.js"></script>
 	<script>
-		$( function () {
+		$( () => {
 			let lastQuery = location.search;
 
 			OO.ui.isDemo = true;
@@ -98,7 +98,7 @@
 				lastQuery = location.search;
 				const newDemo = new Demo();
 				newDemo.initialize().then(
-					function () {
+					() => {
 						$( document.body ).append( newDemo.$element );
 						newDemo.setup();
 						// Scroll to fragment if provided
@@ -114,7 +114,7 @@
 							$( window ).scrollTop( scrollPos );
 						}
 					},
-					function () {
+					() => {
 						// Demo contains an error message which should be displayed
 						$( document.body ).append( newDemo.$element );
 					} );
