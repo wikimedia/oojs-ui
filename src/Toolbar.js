@@ -509,6 +509,9 @@ OO.ui.Toolbar.prototype.getPromotableTools = function () {
 /**
  * Update which tools are promoted out of popup toolgroups, based on the available room.
  *
+ * If a popup toolgroup would be left with a single tool, and that tool can be promoted, it is
+ * promoted too, taking the place of the toolgroup, which is hidden.
+ *
  * This is called automatically when the window is resized.
  */
 OO.ui.Toolbar.prototype.updatePromotedTools = function () {
@@ -526,6 +529,18 @@ OO.ui.Toolbar.prototype.updatePromotedTools = function () {
 		}
 		promotedTools = promotedTools.concat( set );
 		return true;
+	} );
+	// Don't leave a single tool in a popup: show it in place of the toolgroup instead,
+	// which is then hidden
+	[].concat( ...sets ).forEach( ( tool ) => {
+		if (
+			!promotedTools.includes( tool ) &&
+			tool.toolGroup.items.every(
+				( item ) => item === tool || promotedTools.includes( item )
+			)
+		) {
+			promotedTools.push( tool );
+		}
 	} );
 	this.setPromotedTools( promotedTools );
 };

@@ -25,7 +25,9 @@
  *  toolgroup) when there is room in the toolbar. Promoted tools are displayed as if they were in
  *  a {@link OO.ui.BarToolGroup bar} toolgroup. Tools are promoted in the order given, so the first
  *  tool is promoted first and demoted last. See OO.ui.ToolFactory#extract for the format, and
- *  OO.ui.Toolbar#getPromotedToolCount for how the available room is calculated.
+ *  OO.ui.Toolbar#getPromotedToolCount for how the available room is calculated. A tool is also
+ *  promoted if it would otherwise be the only tool left in the popup, see
+ *  OO.ui.Toolbar#updatePromotedTools.
  *
  *  Tools can be grouped in a nested array so that they are only promoted together, e.g.
  *  `[ [ 'bold', 'italic' ], 'underline' ]` promotes bold and italic when there is room for both,
