@@ -10,6 +10,7 @@
 /Gruntfile.js export-ignore
 /package*.json export-ignore
 /phpunit.xml.dist export-ignore
+/eslint.config.js export-ignore
 
 # Not needed for PHP release (JavaScript-only or non-release)
 /demos/ export-ignore
